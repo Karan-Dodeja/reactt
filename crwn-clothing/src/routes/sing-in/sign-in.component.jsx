@@ -1,16 +1,19 @@
 import React from 'react'
-import { signInWithGooglePopup } from "../../utils/firbase/firebas.utils";
+import { signInWithGooglePopup, createUserDocumentFromAuth } from "../../utils/firbase/firebas.utils";
 
-const signin = () => {
+const Signin = () => {
 
   const logGoogleUser = async () => {
-    const response = await signInWithGooglePopup();
-    console.log(response);
+    const { user } = await signInWithGooglePopup();
+    console.log(user);
+    const userDocRef = await createUserDocumentFromAuth(user);
+
+    // console.log(userDocRef);  
   }
 
   return (
     <div>
-      <h1>Sign In Component</h1>
+      <h1>Sign In</h1>
       <button onClick={logGoogleUser}>
         Signin with Google Popup
       </button>
@@ -18,4 +21,4 @@ const signin = () => {
   )
 }
 
-export default signin;
+export default Signin;
