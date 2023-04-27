@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { signInWithGooglePopup, auth, signInWithGoogleRedirect, createUserDocumentFromAuth } from "../../utils/firbase/firebas.utils";
-import { getRedirectResult } from 'firebase/auth';
+// import { getRedirectResult } from 'firebase/auth';
+import SignUpForm from "../../components/sign-up-form/sign-up-form.component";
 
 const Signin = () => {
 
@@ -9,14 +10,16 @@ const Signin = () => {
     const userDocRef = await createUserDocumentFromAuth(user);
   }
 
-  useEffect(async () => {
-    const response = await getRedirectResult(auth);
-    
-    if(response) {
-      const userDocref = await createUserDocumentFromAuth(response.user);
-    }
 
-  }, [])
+
+  // useEffect(async () => {
+  //   const response = await getRedirectResult(auth);
+    
+  //   if(response) {
+  //     const userDocref = await createUserDocumentFromAuth(response.user);
+  //   }
+
+  // }, [])
 
   return (
     <div>
@@ -24,9 +27,10 @@ const Signin = () => {
       <button onClick={logGoogleUser}>
         Signin with Google Popup
       </button>
-      <button onClick={signInWithGoogleRedirect}>
+      <SignUpForm />
+      {/* <button onClick={signInWithGoogleRedirect}>
         Signin with Google Seprate Page
-      </button>
+      </button> */}
     </div>
   )
 }
