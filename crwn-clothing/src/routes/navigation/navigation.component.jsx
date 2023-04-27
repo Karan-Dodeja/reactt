@@ -12,9 +12,12 @@ const Navigation = () => {
                     <CrownLogo className='logo' />
                 </Link>
 
-                <div className='nav-link-container'>
+                <div className='nav-links-container'>
                     <Link className='nav-link' to="/shop">
                         Shop
+                    </Link>
+                    <Link className='nav-link' to="/sign-in">
+                        Sign In
                     </Link>
                 </div>
             </div>
@@ -23,4 +26,4 @@ const Navigation = () => {
     )
 }
 
-export default Navigation
+export default Navigation;
