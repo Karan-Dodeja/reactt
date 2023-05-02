@@ -35,7 +35,11 @@ const SignUpForm = () => {
         } catch (error) {
             if (error.code == 'auth/email-already-in-use') {
                 alert("Email Already Exists");
-            } else {
+            } else if (error.code == 'auth/wrong-password') {
+                alert(" Incorrect Password For Email");
+            } else if (error.code == 'auth/user-not-found') {
+                alert(" No User Associated with Email");
+             } else {
                 console.log(error);
             }
         }
@@ -64,6 +68,7 @@ const SignUpForm = () => {
                 <FormInput label="password" type="password" required onChange={handleChange} name="password" value={password} />
                 
                 <FormInput label="Confirm Password" type="password" required onChange={handleChange} name="confirmPassword" value={confirmPassword} />
+
                 <Button buttonType='inverted' type='submit'>Sign Up</Button>
             </form>
         </div>
